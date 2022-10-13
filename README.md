@@ -12,7 +12,7 @@ Control you home heating using a Raspberry Pi W.
   - [] Temperature setting
   - [] Time setting
   - [] Weather display
-  - [] Temperature Display
+  - [x] Temperature Display
 - [] Control heating using onboard temperature sensor
 - [] Control heating using time
 - [] Control heating using weather api
