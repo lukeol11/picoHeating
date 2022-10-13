@@ -19,6 +19,15 @@ Control you home heating using a Raspberry Pi W.
 - [ ] Control heating using physical buttons
 - [ ] Control heating using Google Assistant
 
+## Setup
+
+### Required files
+
+- [main.py](main.py)
+- [web_server.py](web_server.py)
+- [index.html](index.html)
+- [credentials.py](credentials.py)
+
 ## Hardware
 
 - Raspberry Pi Pico W
@@ -27,7 +36,3 @@ Control you home heating using a Raspberry Pi W.
 ## Software
 
 - Language: Micropython
-
-## Inspiration
-
-- [Web server](https://projects.raspberrypi.org/en/projects/get-started-pico-w/)

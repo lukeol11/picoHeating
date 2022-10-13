@@ -2,13 +2,10 @@ import network
 import socket
 from time import sleep
 import machine
+import credentials
 
 pico_led = machine.Pin("LED", machine.Pin.OUT)
 relay = machine.Pin(6, machine.Pin.OUT)
-
-
-ssid = 'admin'
-password = '#Xena1234567'
 
 
 def findTemperature():
@@ -21,7 +18,7 @@ def connect():
     # Connect to WLAN
     wlan = network.WLAN(network.STA_IF)
     wlan.active(True)
-    wlan.connect(ssid, password)
+    wlan.connect(credentials.ssid, credentials.password)
     while wlan.isconnected() == False:
         print('Waiting for connection...')
         sleep(1)
