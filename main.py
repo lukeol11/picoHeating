@@ -1,7 +1,7 @@
 import web_server
 import time
 
-time.sleep(30)
+time.sleep(10)
 try:
     ip = web_server.connect()
     connection = web_server.open_socket(ip)

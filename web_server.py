@@ -2,22 +2,23 @@ import network
 import socket
 from time import sleep
 import machine
- 
+
 pico_led = machine.Pin("LED", machine.Pin.OUT)
 relay = machine.Pin(6, machine.Pin.OUT)
- 
+
 
 ssid = 'admin'
 password = '#Xena1234567'
 
+
 def findTemperature():
     sensor_temp = machine.ADC(4)
     conversion_factor = 3.3 / (65535)
-    return 27 - ((sensor_temp.read_u16() * conversion_factor ) - 0.706)/0.001721
-    
- 
+    return 27 - ((sensor_temp.read_u16() * conversion_factor) - 0.706)/0.001721
+
+
 def connect():
-    #Connect to WLAN
+    # Connect to WLAN
     wlan = network.WLAN(network.STA_IF)
     wlan.active(True)
     wlan.connect(ssid, password)
@@ -28,8 +29,7 @@ def connect():
     print(f'Connected on {ip}')
     return ip
 
- 
- 
+
 def open_socket(ip):
     # Open a socket
     address = (ip, 80)
@@ -38,27 +38,19 @@ def open_socket(ip):
     connection.listen(1)
     return connection
 
- 
+
 def webpage(temperature, state):
-    #Template HTML
-    html = f"""
-            <!DOCTYPE html>
-            <html>
-            <form action="./heatingon">
-            <input type="submit" value="Heating on" />
-            </form>
-            <form action="./heatingoff">
-            <input type="submit" value="Heating off" />
-            </form>
-            <p>Heating is {state}</p>
-            <p>Temperature is {temperature}</p>
-            </body>
-            </html>
-            """
-    return str(html)
- 
+    # Template HTML
+    page = open("index.html", "r")
+    html = page.read()
+    page.close()
+    html = str(html).replace("{temperature}", str(temperature))
+    html = html.replace("{state}", str(state))
+    return html
+
+
 def serve(connection):
-    #Start a web server
+    # Start a web server
     state = 'OFF'
     pico_led.off()
     relay.off()
@@ -75,7 +67,7 @@ def serve(connection):
             pico_led.on()
             relay.on()
             state = 'ON'
-        elif request =='/heatingoff?':
+        elif request == '/heatingoff?':
             pico_led.off()
             relay.off()
             state = 'OFF'
