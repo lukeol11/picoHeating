@@ -10,14 +10,14 @@ Control you home heating using a Raspberry Pi W.
 - [x] Control heating using http web server
   - [x] ON/OFF Functionality
   - [x] Temperature Display
-  - [-] Temperature setting
-  - [-] Time setting
-  - [-] Weather display
-- [-] Control heating using onboard temperature sensor
-- [-] Control heating using time
-- [-] Control heating using weather api
-- [-] Control heating using physical buttons
-- [-] Control heating using Google Assistant
+  - [ ] Temperature setting
+  - [ ] Time setting
+  - [ ] Weather display
+- [ ] Control heating using onboard temperature sensor
+- [ ] Control heating using time
+- [ ] Control heating using weather api
+- [ ] Control heating using physical buttons
+- [ ] Control heating using Google Assistant
 
 ## Hardware
 
@@ -30,4 +30,4 @@ Control you home heating using a Raspberry Pi W.
 
 ## Inspiration
 
-[Web server](https://projects.raspberrypi.org/en/projects/get-started-pico-w/)
+- [Web server](https://projects.raspberrypi.org/en/projects/get-started-pico-w/)
